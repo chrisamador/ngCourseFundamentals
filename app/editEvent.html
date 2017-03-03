@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en" ng-app="eventsApp">
+<head>
+	<meta charset="utf-8">
+	<title>Event Registration</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/app.css">
+</head>
+<body ng-cloak>
+	<div class="container">
+		<div class="navbar">
+			<div class="navbar-inner">
+				<ul class="nav">
+					<li class="nav-item"><a href="eventDetails.html">Events Details</a></li>
+					<li class="nav-item"><a href="editEvent.html">Edit Events</a></li>
+				</ul>
+			</div>
+		</div>
+		<div ng-controller="editEventCtrl">
+			<div class="container">
+				<h1>Edit Event</h1>
+				<hr>
+				<form name="jaw">
+		        <fieldset>
+		         	<label for="eventName">Event Name:</label>
+		         	<input id="eventName" type="text" ng-model="event.name" required placeholder="Name of your event..." />
+		         	<label for="eventDate">Event Date:</label>
+		         	<div style="position:relative">
+		            	<input id="eventDate" type="text" ng-model="event.date" placeholder="format (mm/dd/yyyy)..." />
+		         	</div>
+		         	<label for="eventTime">Event Time:</label>
+		         	<input id="eventTime" type="text"  placeholder="start and end time..." ng-model="event.time"/>
+		         	<label for="eventLocation">Event Location:</label>
+		         	<input id="eventLocation" type="text" placeholder="Address of event..." />
+		         	<br />
+		         	<input id="eventCity" type="text" class="input-small" placeholder="City..." />
+		         	<input id="eventProvince" type="text" class="input-small" placeholder="Province..." />
+		         	<h2>{{event.name}}</h2>
+		         	<label for="eventImageUrl">Image:</label>
+		         	<input id="eventImageUrl" type="url" ng-model="event.imageUrl" class="input-xlarge" placeholder="url of image..." />
+		        </fieldset>
+		        <img ng-src="{{event.imageUrl}}">
+		        <button type="submit" class="btn btn-primary" ng-click="saveEvent(event)">Submit</button>
+		        <button type="button" class="btn btn-default" ng-click="cancelEvent(event)">Cancel</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="lib/jquery.min.js"></script>
+	<script src="lib/underscore-1.4.4.min.js"></script>
+	<script src="lib/bootstrap.min.js"></script>
+	<script src="lib/angular/angular.js"></script>
+	<script src="lib/angular/angular-sanitize.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/controllers/event.js"></script>
+	<script src="js/controllers/editEvent.js"></script>
+
+</body>
+</html>

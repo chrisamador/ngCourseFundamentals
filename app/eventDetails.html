@@ -11,18 +11,19 @@
 		<div class="navbar">
 			<div class="navbar-inner">
 				<ul class="nav">
-					
+					<li class="nav-item"><a href="eventDetails.html">Events Details</a></li>
+					<li class="nav-item"><a href="editEvent.html">Edit Events</a></li>
 				</ul>
 			</div>
 		</div>
 		<div ng-controller="EventController">
-			<img ng-src="{{event.imageUrl}}" alt="{{event.name}}">
+			<img ng-src="{{event.imageUrl}}" alt="{{event.name}} Logo">
 			<div class="row">
 				<div class="span12">
 					<h2 ng-bind-template="{{event.name | uppercase}} chris"></h2>
 					<div ng-bind-html="snippet">Some title</div>
 				</div>
-				<div class="span4">			
+				<div class="span4">
 					<h3>{{event.date}} | {{event.time}}</h3>
 				</div>
 				<div class="span4">
@@ -33,7 +34,7 @@
 					</address>
 				</div>
 			</div>
-
+			<button class="btn" ng-disabled="true">Nice</button>
 			<hr/>
 			<h3>Sessions</h3>
 			<ul class="thumbnails">
@@ -54,7 +55,7 @@
 							<h4 class="well-title" style="margin-bottom: 0;">{{session.name}}</h4>
 							<h6>{{session.creatorName}}</h6>
 							<span>Duration: {{session.duration}}</span><br/>
-							<span>Level: {{session.level}}</span>
+							<span>Level: {{session.level | eventLevel}}</span>
 							<p>{{session.abstract}}</p>
 						</div>
 					</div>
@@ -69,6 +70,7 @@
 	<script src="lib/angular/angular.js"></script>
 	<script src="lib/angular/angular-sanitize.js"></script>
 	<script src="js/app.js"></script>
-	<script src="js/controllers/EventController.js"></script>
+	<script src="js/controllers/event.js"></script>
+	<script src="js/controllers/editEvent.js"></script>
 </body>
 </html>

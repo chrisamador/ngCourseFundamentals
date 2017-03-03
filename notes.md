@@ -2,6 +2,9 @@
 
 Course URL: https://app.pluralsight.com/library/courses/angularjs-fundamentals/table-of-contents
 
+Run
+- bash server.sh
+
 ## What is Angular
 
 - It's a MV* framework
@@ -11,7 +14,7 @@ Course URL: https://app.pluralsight.com/library/courses/angularjs-fundamentals/t
 
 ## Angular Architecture
 
-- Two Way Binding 
+- Two Way Binding
 - Dirty Checking, No need for get or sets on the models
 - Dependency Injection
 
@@ -42,3 +45,22 @@ Features
 	- <div ng-form />
 	- <div class="ng-form"/>
 	- Inside HTML comments
+
+Examples of built in directives
+
+- ngApp					- ngDisable
+- ngBind					- ngChecked
+- ngBindTemplate		- ngMultiple
+- ngBindHtml			- ngReadonly
+- ngBindHtmlUnsafe	- ngSelected
+- ngHide
+- ngShow
+- ngCloak
+- ngStyle
+- ngClass
+- ngClassEven
+- ngClassOdd
+
+
+
+

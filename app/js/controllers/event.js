@@ -1,8 +1,28 @@
 'use strict';
 
-eventsApp.controller('EventController', 
+eventsApp.filter('eventLevel', function() {
+  return function(input) {
+
+    var output;
+
+    switch(input){
+    	case "Introductory": output = "nice";
+    		break;
+    	case "Advanced": output = "dude";
+    		break;
+    	default:
+    		output = input;
+    		break;
+    }
+
+    return output;
+
+  }
+});
+
+eventsApp.controller('EventController',
 	function ($scope) {
-	
+
 	$scope.event = {
 		name: 'Angular Boot Camp',
 		date: '1/1/2013',
@@ -41,8 +61,12 @@ eventsApp.controller('EventController',
                 abstract: "Controllers are the beginning of everything Angular does.  Learn how to craft controllers that will win the respect of your friends and neighbors.",
                 upVoteCount: 1
             }
-        ]		
+        ]
 	};
+
+	$scope.filterFn = function(str){
+		console.log(str);
+	}
 
 	$scope.upVoteSession = function(session){
 		session.upVoteCount++;
@@ -53,6 +77,4 @@ eventsApp.controller('EventController',
 
 	$scope.snippet = '<span style="color:red">hi <br/> <strong>there</strong></span>';
 
-
-	
 });
