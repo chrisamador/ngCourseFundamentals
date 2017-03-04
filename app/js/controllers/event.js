@@ -1,68 +1,20 @@
 'use strict';
 
-eventsApp.filter('eventLevel', function() {
-  return function(input) {
 
-    var output;
-
-    switch(input){
-    	case "Introductory": output = "nice";
-    		break;
-    	case "Advanced": output = "dude";
-    		break;
-    	default:
-    		output = input;
-    		break;
-    }
-
-    return output;
-
-  }
-});
 
 eventsApp.controller('EventController',
-	function ($scope) {
-
-	$scope.event = {
-		name: 'Angular Boot Camp',
-		date: '1/1/2013',
-		time: '10:30am',
-		location: {
-			address: 'Google Headerquaters',
-			city: 'Mountain View',
-			state: 'CA'
-		},
-		imageUrl: 'img/angularjs-logo.png',
-		sessions: [
-            {
-				id: 1,
-                name: "Directives Masterclass",
-                creatorName: "Bob Smith",
-                duration: 1,
-                level: "Advanced",
-                abstract: "In this session you will learn the ins and outs of directives!",
-                upVoteCount: 0
-            },
-            {
-				id: 2,
-                name: "Scopes for fun and profit",
-                creatorName: "John Doe",
-                duration: 3,
-                level: "Introductory",
-                abstract: "This session will take a closer look at scopes.  Learn what they do, how they do it, and how to get them to do it for you.",
-                upVoteCount: 3
-            },
-            {
-				id: 3,
-                name: "Well Behaved Controllers",
-                creatorName: "Jane Doe",
-                duration: 2,
-                level: "Intermediate",
-                abstract: "Controllers are the beginning of everything Angular does.  Learn how to craft controllers that will win the respect of your friends and neighbors.",
-                upVoteCount: 1
-            }
-        ]
-	};
+	function ($scope, eventData, $log) {
+// $http
+	// eventData.getEvent()
+ //        .success(function(data, status, headers, config){
+ //            $scope.event = data;
+ //        })
+ //        .error(function(data, status, headers, config){
+ //            $log.warn(data, status, headers(), config)
+ //        });
+ //        
+    
+    $scope.event = eventData.getEvent();
 
 	$scope.filterFn = function(str){
 		console.log(str);

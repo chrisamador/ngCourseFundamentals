@@ -1,11 +1,20 @@
 eventsApp.controller('editEventCtrl',
-	function ($scope) {
+	function ($scope, eventData) {
 		function soap(i){
 			this.name = "man"
 			this.item = i;
 		}
-		$scope.saveEvent = function(singleEvent){
-			console.log(new soap(singleEvent));
+		$scope.saveEvent = function(event, jaw){
+			if(jaw.$valid){
+				eventData.saveEvent(event)
+					.$promise
+					.then(function(res){
+						console.log('success', res);
+					})
+					.catch(function(res){
+						console.log('failure', res);
+					})
+			}
 		}
 
 		$scope.cancelEvent = function(singleEvent){

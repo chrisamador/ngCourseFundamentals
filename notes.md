@@ -2,6 +2,8 @@
 
 Course URL: https://app.pluralsight.com/library/courses/angularjs-fundamentals/table-of-contents
 
+Last left of on: 
+
 Run
 - bash server.sh
 
